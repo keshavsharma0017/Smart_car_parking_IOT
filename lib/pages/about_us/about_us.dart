@@ -80,12 +80,11 @@ class AboutUs extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () async {
-                  var url =
-                      Uri.parse("https://github.com/MrNitishroy/Smart_car_parking_IOT");
+                  var url = Uri.parse(
+                      "https://github.com/MrNitishroy/Smart_car_parking_IOT");
                   if (await canLaunchUrl(url)) {
                     await launchUrl(url);
                   } else {
-                   
                     print("Could not launch $url");
                   }
                 },

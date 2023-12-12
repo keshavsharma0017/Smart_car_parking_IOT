@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smart_car_parking/config/colors.dart';
 import 'package:smart_car_parking/controller/model/car_model.dart';
+import 'package:smart_car_parking/pages/homepage/homepage.dart';
 
 class ParkingController extends GetxController {
   RxList<CarModel> parkingSlotList = <CarModel>[].obs;
@@ -104,9 +105,9 @@ class ParkingController extends GetxController {
     );
 
     int parkingTime = parkingTimeInMin.value.toInt();
-
+    Get.back();
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       slot1.value.parkingHours = parkingTime.toString();
       print(parkingTime);
@@ -133,7 +134,7 @@ class ParkingController extends GetxController {
     int parkingTime = parkingTimeInMin.value.toInt();
 
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       print(parkingTime);
       slot2.value.parkingHours = parkingTime.toString();
@@ -160,7 +161,7 @@ class ParkingController extends GetxController {
     int parkingTime = parkingTimeInMin.value.toInt();
 
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       print(parkingTime);
       slot3.value.parkingHours = parkingTime.toString();
@@ -187,7 +188,7 @@ class ParkingController extends GetxController {
     int parkingTime = parkingTimeInMin.value.toInt();
 
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       print(parkingTime);
       slot4.value.parkingHours = parkingTime.toString();
@@ -214,7 +215,7 @@ class ParkingController extends GetxController {
     int parkingTime = parkingTimeInMin.value.toInt();
 
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       print(parkingTime);
       slot5.value.parkingHours = parkingTime.toString();
@@ -241,7 +242,7 @@ class ParkingController extends GetxController {
     int parkingTime = parkingTimeInMin.value.toInt();
 
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       print(parkingTime);
       slot6.value.parkingHours = parkingTime.toString();
@@ -268,7 +269,7 @@ class ParkingController extends GetxController {
     int parkingTime = parkingTimeInMin.value.toInt();
 
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       print(parkingTime);
       slot7.value.parkingHours = parkingTime.toString();
@@ -295,7 +296,7 @@ class ParkingController extends GetxController {
     int parkingTime = parkingTimeInMin.value.toInt();
 
     while (parkingTime != 0) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       parkingTime--;
       slot8.value.parkingHours = parkingTime.toString();
       print(parkingTime);
@@ -316,7 +317,7 @@ class ParkingController extends GetxController {
     return Get.defaultDialog(
         barrierDismissible: false,
         title: "SLOT BOOKED",
-        titleStyle: TextStyle(
+        titleStyle: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w500,
           color: blueColor,
@@ -326,9 +327,9 @@ class ParkingController extends GetxController {
             Lottie.asset(
               'assets/animation/done1.json',
             ),
-              Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "Your Slot Booked",
                   style: TextStyle(
@@ -342,87 +343,102 @@ class ParkingController extends GetxController {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.person),
-                SizedBox(width: 5),
-                Text("Name : ",style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey
-                ),),
-                SizedBox(width: 20),
-                Text(name.text,style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black
-                ),),
+                const Icon(Icons.person),
+                const SizedBox(width: 5),
+                const Text(
+                  "Name : ",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+                const SizedBox(width: 20),
+                Text(
+                  name.text,
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.car_rental),
-                SizedBox(width: 5),
-                Text("Vehical No  : ",style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey
-                ),),
-                SizedBox(width: 20),
-                Text(vehicalNumber.text,style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black
-                ),),
+                const Icon(Icons.car_rental),
+                const SizedBox(width: 5),
+                const Text(
+                  "Vehical No  : ",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+                const SizedBox(width: 20),
+                Text(
+                  vehicalNumber.text,
+                  style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.watch_later_outlined),
-                SizedBox(width: 5),
-                Text("Parking time : ",style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey
-                ),),
-                SizedBox(width: 20),
-                Text(parkingTimeInMin.value.toString(),style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black
-                ),),
+                const Icon(Icons.watch_later_outlined),
+                const SizedBox(width: 5),
+                const Text(
+                  "Parking time : ",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+                const SizedBox(width: 20),
+                Text(
+                  parkingTimeInMin.value.toString(),
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.solar_power_outlined),
-                SizedBox(width: 5),
-                Text("Parking Slot : ",style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey
-                ),),
-                SizedBox(width: 20),
-                Text("A-${slotName.value.toString()}",style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black
-                ),),
+                const Icon(Icons.solar_power_outlined),
+                const SizedBox(width: 5),
+                const Text(
+                  "Parking Slot : ",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+                const SizedBox(width: 20),
+                Text(
+                  "A-${slotName.value.toString()}",
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
               ],
             ),
-       
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.currency_rupee,
                   size: 40,
                   color: blueColor,
                 ),
                 Text(
                   parkingAmount.value.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.w700,
                     color: blueColor,
@@ -430,12 +446,12 @@ class ParkingController extends GetxController {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Get.back();
               },
-              child: Text("Close"),
+              child: const Text("Close"),
             )
           ],
         ));

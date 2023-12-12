@@ -59,16 +59,16 @@ class Splace_Screen extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                collegeLogo,
-                width: 200,
-              )
-            ],
-          )),
+          // Expanded(
+          //     child: Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Image.asset(
+          //       collegeLogo,
+          //       width: 200,
+          //     )
+          //   ],
+          // )),
         ]),
       ),
     );

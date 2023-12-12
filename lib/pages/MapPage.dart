@@ -14,8 +14,6 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-
-
   @override
   void initState() {
     super.initState();
@@ -24,7 +22,7 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     final Completer<GoogleMapController> controller = Completer();
-    const LatLng center = LatLng(23.25226182392082, 77.48536382627971);
+    const LatLng center = LatLng(28.67656924998032, 77.50039845269335);
 
     return Scaffold(
       appBar: AppBar(
@@ -66,7 +64,7 @@ class _MapPageState extends State<MapPage> {
         mapType: MapType.normal,
         initialCameraPosition: const CameraPosition(
           target: center,
-          zoom: 18.0,
+          zoom: 14.0,
         ),
         markers: {
           Marker(
@@ -74,40 +72,56 @@ class _MapPageState extends State<MapPage> {
             onTap: () {
               Get.to(HomePage());
             },
-            markerId: MarkerId('parking_1'),
-            position: LatLng(23.25149294505952, 77.48705898225234),
+            markerId: const MarkerId('parking_1'),
+            position: const LatLng(28.67120491311754, 77.50065306014204),
           ),
           Marker(
             visible: true,
             onTap: () {
               Get.to(HomePage());
             },
-            markerId: MarkerId('parking_2'),
-            position: LatLng(23.252025246281843, 77.48283182115601),
+            markerId: const MarkerId('parking_2'),
+            position: const LatLng(28.67720491311754, 77.50745306014204),
           ),
           Marker(
             visible: true,
             onTap: () {
               Get.to(HomePage());
             },
-            markerId: MarkerId('parking_3'),
-            position: LatLng(23.251670379036387, 77.47907672881156),
+            markerId: const MarkerId('parking_3'),
+            position: const LatLng(28.67120491311754, 77.50745306014204),
           ),
           Marker(
             visible: true,
             onTap: () {
               Get.to(HomePage());
             },
-            markerId: MarkerId('parking_4'),
-            position: LatLng(23.2484962466233, 77.48594318366699),
+            markerId: const MarkerId('parking_4'),
+            position: const LatLng(28.67656924998032, 77.50039845269335),
           ),
           Marker(
             visible: true,
             onTap: () {
               Get.to(HomePage());
             },
-            markerId: MarkerId('parking_5'),
-            position: LatLng(23.251951095267497, 77.48558382672624),
+            markerId: const MarkerId('parking_5'),
+            position: const LatLng(28.663202888100216, 77.49152728663199),
+          ),
+          Marker(
+            visible: true,
+            onTap: () {
+              Get.to(HomePage());
+            },
+            markerId: const MarkerId('parking_6'),
+            position: const LatLng(28.675985596816712, 77.48866774869336),
+          ),
+          Marker(
+            visible: true,
+            onTap: () {
+              Get.to(HomePage());
+            },
+            markerId: const MarkerId('parking_7'),
+            position: const LatLng(28.682830114064096, 77.50327080241746),
           ),
         },
         myLocationButtonEnabled: true,

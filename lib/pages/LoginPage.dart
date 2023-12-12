@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple.shade200,
-        title: Text("😍 L O G I N 🌳"),
+        title: const Text("Login"),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -22,34 +22,32 @@ class LoginPage extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: SingleChildScrollView(
             child: Column(children: [
-              Row(
-                children: [
-                  Text(
-                    "Welcome back ❤️",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
+              const Center(
+                child: Text(
+                  "Welcome back ",
+                  style: TextStyle(fontSize: 15, color: Colors.deepPurple),
+                ),
               ),
-              Row(
-                children: [
-                  Text(
-                    "LOGIN",
-                    style: TextStyle(fontSize: 45, fontWeight: FontWeight.w700),
-                  ),
-                ],
+
+              const Text(
+                "LOGIN",
+                style: TextStyle(
+                    fontSize: 45,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.deepPurple),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               MyTextField(
                   icons: Icons.email, lable: "Email id", Onchange: demo),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               MyTextField(
                   icons: Icons.password, lable: "Password", Onchange: demo),
-              SizedBox(height: 90),
+              const SizedBox(height: 90),
               MyButton(
                 icon: Icons.admin_panel_settings_rounded,
                 Btname: "LOGIN",
                 ontap: () {
-                  Get.offAll(MapPage());
+                  Get.offAll(const MapPage());
                 },
               ),
               // SizedBox(height: 20),

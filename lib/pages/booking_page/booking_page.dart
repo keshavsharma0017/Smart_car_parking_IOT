@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smart_car_parking/controller/PakingController.dart';
+import 'package:smart_car_parking/pages/homepage/homepage.dart';
 import '../../config/colors.dart';
 
 class BookingPage extends StatelessWidget {
   final String slotName;
   final String slotId;
   const BookingPage({super.key, required this.slotId, required this.slotName});
-
   @override
   Widget build(BuildContext context) {
     ParkingController parkingController = Get.put(ParkingController());
@@ -44,7 +44,7 @@ class BookingPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Row(
                 children: [
                   Text(
@@ -56,11 +56,11 @@ class BookingPage extends StatelessWidget {
                   )
                 ],
               ),
-              Divider(
+              const Divider(
                 thickness: 1,
                 color: blueColor,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               const Row(
                 children: [
                   Text(
@@ -68,7 +68,7 @@ class BookingPage extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Expanded(
@@ -88,7 +88,7 @@ class BookingPage extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               const Row(
                 children: [
                   Text(
@@ -96,7 +96,7 @@ class BookingPage extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Expanded(
@@ -116,7 +116,7 @@ class BookingPage extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Row(
                 children: [
                   Text(
@@ -124,9 +124,10 @@ class BookingPage extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 10),
-             Obx(() => Slider(
-              mouseCursor: MouseCursor.defer,
+              const SizedBox(height: 10),
+              Obx(
+                () => Slider(
+                  mouseCursor: MouseCursor.defer,
                   thumbColor: blueColor,
                   activeColor: blueColor,
                   inactiveColor: lightBg,
@@ -134,11 +135,9 @@ class BookingPage extends StatelessWidget {
                   value: parkingController.parkingTimeInMin.value,
                   onChanged: (v) {
                     parkingController.parkingTimeInMin.value = v;
-                    if(v<=30)
-                    {
-                       parkingController.parkingAmount.value=30;
-                    }
-                    else{
+                    if (v <= 30) {
+                      parkingController.parkingAmount.value = 30;
+                    } else {
                       parkingController.parkingAmount.value = 60;
                     }
                     //  parkingController.parkingAmount.value = (parkingController.parkingTimeInMin.value * 10).round();
@@ -146,12 +145,13 @@ class BookingPage extends StatelessWidget {
                   divisions: 5,
                   min: 10,
                   max: 60,
-                ),),
-           const   Padding(
+                ),
+              ),
+              const Padding(
                 padding: const EdgeInsets.only(left: 10, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:  [
+                  children: [
                     Text("10"),
                     Text("20"),
                     Text("30"),
@@ -161,16 +161,16 @@ class BookingPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Row(
+              const SizedBox(height: 20),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "Your Slot Name",
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -184,7 +184,7 @@ class BookingPage extends StatelessWidget {
                     child: Center(
                       child: Text(
                         slotName,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
@@ -194,49 +194,53 @@ class BookingPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 80),
+              const SizedBox(height: 80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           Text("Amount to Be Pay"),
                         ],
                       ),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.currency_rupee,
                             size: 30,
                             color: blueColor,
                           ),
-                         Obx(() => Text(
+                          Obx(
+                            () => Text(
                               "${parkingController.parkingAmount.value}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 40,
                                 fontWeight: FontWeight.w700,
                                 color: blueColor,
                               ),
-                            ),)
+                            ),
+                          )
                         ],
                       ),
                     ],
                   ),
                   InkWell(
                     onTap: () {
+                      parkingController.bookParkingSlot(slotId);
+                      
                       // withoutFirebase.makePayment(slotId);
-                    //  withoutFirebase.slot1.value = true;
+                      //  withoutFirebase.slot1.value = true;
                     },
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 60, vertical: 20),
                       decoration: BoxDecoration(
                         color: blueColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text(
+                      child: const Text(
                         "PAY NOW",
                         style: TextStyle(
                           fontSize: 18,

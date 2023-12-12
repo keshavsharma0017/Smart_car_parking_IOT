@@ -12,12 +12,12 @@ var pages = [
   ),
   GetPage(
     name: '/about-us',
-    page: () => AboutUs(),
+    page: () => const AboutUs(),
     transition: Transition.rightToLeft,
   ),
   GetPage(
     name: '/map-page',
-    page: () => MapPage(),
+    page: () => const MapPage(),
     transition: Transition.fade,
   ),
 ];
